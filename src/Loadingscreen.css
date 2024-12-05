@@ -1,0 +1,25 @@
+.Loading{
+    height: 100vh;
+    width: 100vw;
+}
+.animation{
+    margin:2% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loadingp{
+    font-size: 1.9em;
+    margin-left: 40%;
+    margin-top: -5%;
+}
+span{
+    font-size: 1.9em;
+    margin-left: 33%;
+
+}
+iframe{
+    height: 70vh;
+    width: 70vw;
+    border: none;
+}
