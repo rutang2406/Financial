@@ -6,16 +6,15 @@ import image from "./assets/search.png";
 import Moremenu from "./Moremenu.jsx"
 import "./App.css"
 import Divsnewswoimgcontent from "./Divsnewswoimgcontent.jsx";
+// import Search from "./Search.jsx";
+import Mainarchitecture from "./Mainarchitecture.jsx";
 function App() {
     const subURL1="https://newsapi.org/v2/everything?q=trending&apiKey=0a6d830670a8447ab8ca8bce035d61e6";
     const URL="https://newsapi.org/v2/top-headlines?country=us&apiKey=0a6d830670a8447ab8ca8bce035d61e6"    
     const subURL2="https://newsapi.org/v2/everything?q=geopolitics&apiKey=0a6d830670a8447ab8ca8bce035d61e6"
     const [Data,setData]=useState();
-    const [moreVisible, setMoreVisible] = useState(false);
-    const [arrowrotate,setarrowrotate]=useState(true);
-
     let[loading,Setloading]=useState(true);
-  useEffect(() => {
+    useEffect(() => {
     const fetchData = async () => {
       Setloading(true);
 
@@ -62,88 +61,13 @@ function App() {
   }
   
   const newswimg = Data && Data.articles && Data.articles.filter(article => article.title!=="[Removed]" && article.urlToImage !== null && article.content !== null);
-
-  
   const newswoimg = Data && Data.articles && Data.articles.filter(article =>article.title!=="[Removed]" && article.urlToImage === null && article.content !== null);
-
-  
   const newswoimgcontent = Data && Data.articles && Data.articles.filter(article =>article.title!=="[Removed]" && article.urlToImage === null && article.content === null);
-  
-  const toggleMoreMenu = () => {
-    const moreMenu = document.querySelector(".moremenu");
-    const arrow=document.querySelector(".material-symbols-outlined");
-
-    if (moreMenu) {
-      moreMenu.style.visibility = moreVisible ? "hidden" : "visible";
-      arrow.style.transform=arrowrotate?"rotate(180deg)":"rotate(0deg)";
-      setarrowrotate(!arrowrotate);
-      setMoreVisible(!moreVisible);
-    }
-  };
+  console.log(newswimg);
   
   return (
     <>
-      <div className="mainbar">
-        <h1>Financials</h1>
-        <div className="search-bar">
-          <input type="text" placeholder="Search in Financials" />
-          <button><img src={image} alt="Search" /></button>
-        </div>
-      </div>
-      <div className="Mainmenu">
-        <ul>
-          <li><a href="#">Economy</a></li>
-          <li><a href="#">Politics</a></li>
-          <li><a href="#">Business</a></li>
-          <li><a href="#">Industries</a></li>
-          <li><a href="#">Real Estates</a></li>
-          <li>
-            <div className="More" onClick={toggleMoreMenu} >
-              More
-              <span className="material-symbols-outlined">arrow_drop_down</span>
-            </div>
-          </li>
-        </ul>
-        <Moremenu />
-      </div>
-      <div className="containers">
-        {newswimg && newswimg.map((article, index) => (
-          <Divsnewswimg
-            key={index}
-            urlToImage={article.urlToImage}
-            title={article.title}
-            content={article.content}
-            url={article.url}
-            publishedAt={article.publishedAt}
-            author={article.author}
-            topHeadline={article.topHeadline}
-            className="article"
-          />
-        ))}
-        {newswoimg && newswoimg.map((article, index) => (
-          <Divsnewswoimg
-            key={index}
-            title={article.title}
-            content={article.content}
-            url={article.url}
-            publishedAt={article.publishedAt}
-            author={article.author}
-            topHeadline={article.topHeadline}
-            className="article"
-          />
-        ))}
-        {newswoimgcontent && newswoimgcontent.map((article, index) => (
-          <Divsnewswoimgcontent
-            key={index}
-            title={article.title}
-            url={article.url}
-            publishedAt={article.publishedAt}
-            author={article.author}
-            topHeadline={article.topHeadline}
-            className="article"
-          />
-        ))}
-      </div>
+      <Mainarchitecture newswimg={newswimg} newswoimg={newswoimg} newswoimgcontent={newswoimgcontent}/>
     </>
   );
 }
