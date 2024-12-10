@@ -64,6 +64,11 @@ h4{
     font-size: 0.8em;
     display: block; /* Ensures span tags stack vertically */
     padding: 5px; /* Optional for better spacing */
+
+  }
+  .moremenu span:hover{
+    cursor: pointer;
+    color:darkblue
   }
   
   .moremenu h4 {

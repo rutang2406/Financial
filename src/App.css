@@ -58,6 +58,9 @@ ul {
     padding: 0;
     margin-bottom: 60px;
 }
+ul:hover{
+    cursor: pointer;
+}
 
 ul li { 
     list-style-type: none;

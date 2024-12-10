@@ -1,12 +1,6 @@
 import React,{useEffect, useState} from "react";
-import Divsnewswimg from "./Divsnewswimg.jsx";
-import Divsnewswoimg from "./Divsnewswoimg.jsx"
 import Loadingscreen from "./Loadingscreen.jsx";
-import image from "./assets/search.png";
-import Moremenu from "./Moremenu.jsx"
 import "./App.css"
-import Divsnewswoimgcontent from "./Divsnewswoimgcontent.jsx";
-// import Search from "./Search.jsx";
 import Mainarchitecture from "./Mainarchitecture.jsx";
 function App() {
     const subURL1="https://newsapi.org/v2/everything?q=trending&apiKey=0a6d830670a8447ab8ca8bce035d61e6";
@@ -15,7 +9,7 @@ function App() {
     const [Data,setData]=useState();
     let[loading,Setloading]=useState(true);
     useEffect(() => {
-    const fetchData = async () => {
+      const fetchData = async () => {
       Setloading(true);
 
       try {
@@ -63,8 +57,6 @@ function App() {
   const newswimg = Data && Data.articles && Data.articles.filter(article => article.title!=="[Removed]" && article.urlToImage !== null && article.content !== null);
   const newswoimg = Data && Data.articles && Data.articles.filter(article =>article.title!=="[Removed]" && article.urlToImage === null && article.content !== null);
   const newswoimgcontent = Data && Data.articles && Data.articles.filter(article =>article.title!=="[Removed]" && article.urlToImage === null && article.content === null);
-  console.log(newswimg);
-  
   return (
     <>
       <Mainarchitecture newswimg={newswimg} newswoimg={newswoimg} newswoimgcontent={newswoimgcontent}/>
