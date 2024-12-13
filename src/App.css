@@ -9,11 +9,10 @@ body{
     padding-top: 30px;
     padding-bottom: 30px;
     width: 59vw;
-    border: 2px solid black;
     margin: 0 auto;
 }
 .mainbar{
-    width: 99vw;
+    width: 98.5vw;
     height: 100px;
     color: whitesmoke;
     background-color: black;
