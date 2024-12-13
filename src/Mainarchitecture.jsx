@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from "react";
 import Divsnewswimg from "./Divsnewswimg.jsx";
 import Divsnewswoimg from "./Divsnewswoimg.jsx"
-import image from "./assets/search.png";
+
 import Moremenu from "./Moremenu.jsx"
 import "./App.css"
 import Divsnewswoimgcontent from "./Divsnewswoimgcontent.jsx";
@@ -13,17 +13,12 @@ function Mainarchitecture(props){
     const newswimg=props.newswimg;
     const newswoimg=props.newswoimg;
     const newswoimgcontent=props.newswoimgcontent;
-    const searchFunction =async() => { 
-      const query = document.querySelector('.searchinput').value;
-      setsearch(query);
-    };
+    
         
     if(loading){
       return <Loadingscreen/>;
     }
-    if(search){
-      return <Search value={search}/>;
-    }
+    
     return(
         <>
         <Moremenu />

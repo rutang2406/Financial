@@ -106,7 +106,7 @@ a{
     flex-direction: column;
     justify-content: stretch;
 }
-.newscontainerwimg:hover{
+.newscontainerwimg h2:hover .newscontainerwimg {
     color:rgb(179, 171, 171)
 }
 .newscontainerwoimg{

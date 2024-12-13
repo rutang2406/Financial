@@ -36,7 +36,7 @@ function Moremenu(){
     return(
         <>
         <div className="mainbar">
-            <h1>Financials</h1>
+            <h1>Financial</h1>
         <div className="search-bar" onKeyUp={keydown} onKeyDown={keydown}>
           <input type="text" placeholder="Search in Financials" className='searchinput'/>
           <button id="searchbutton" ><img src={image} alt="Search" /></button>
